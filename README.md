@@ -2,6 +2,7 @@
 Complete guide to Elasticsearch
 
 ## Run Elasticsearch - Docker
+Before start make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 1. Run ```docker-compose up```.
 2. Open new terminal.
 3. Run ```docker exec -it elasticsearch /bin/bash```
