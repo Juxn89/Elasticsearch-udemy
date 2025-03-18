@@ -19,3 +19,22 @@ Before start make sure you have [Docker Desktop](https://www.docker.com/products
 - [Elasticsearch download](https://www.elastic.co/downloads/elasticsearch)
 - [Kibana download](https://www.elastic.co/downloads/kibana)
 - [OpenSearch download](https://opensearch.org/downloads.html)
+
+## Kibana
+### Commands
+#### Nodes and Cat API
+|HTTP Verb|URL|Summary|
+|---------|---|-------|
+|**GET**|```/_cluster/health```|Retrive clusters state|
+|**GET**|```/_cat/nodes?v```|Show information readable|
+|**GET**|```/_cat/indexes?v&expand_wildcards=all```|Check indexes in our cluster|
+
+- [Nodes info API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-nodes-info.html)
+- [cat nodes API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-nodes.html)
+
+#### Indexes
+|HTTP Verb|URL|Summary|
+|---------|---|-------|
+|**GET**|```/cat/indices?v```|Get list of indexes|
+|**PUT**|```/cat/INDEX_NAME```|Create a index. ex: ```/cat/pages```|
+|**GET**|```/_cat/shards?v```|Get list of sharps|
