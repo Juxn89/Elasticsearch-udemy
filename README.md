@@ -1,6 +1,9 @@
 # Elasticsearch-udemy
 Complete guide to Elasticsearch
 
+## Docs
+- [GitHub Repository - Complete guide to Elasticsearch](https://github.com/codingexplained/complete-guide-to-elasticsearch)
+
 ## Run Elasticsearch - Docker
 Before start make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 1. Run ```docker-compose up```.
