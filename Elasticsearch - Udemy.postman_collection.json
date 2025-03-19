@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "3eafc625-2a33-4b26-8fdc-fb3912a1be28",
+		"name": "Elasticsearch - Udemy",
+		"description": "**Course:** Complete Guide to Elasticsearch\n\n**URL:** [https://www.udemy.com/course/elasticsearch-complete-guide/](https://www.udemy.com/course/elasticsearch-complete-guide/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6694946"
+	},
+	"item": [
+		{
+			"name": "docs",
+			"item": [
+				{
+					"name": "Get documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_search",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get document by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_doc/M0EfsJUBhuRNkgPquVce",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_doc",
+								"M0EfsJUBhuRNkgPquVce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Coffe Maker\",\r\n    \"price\": 64,\r\n    \"in_stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_doc",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update document",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Toaster\",\r\n    \"price\": 49,\r\n    \"in_stock\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_doc/M0EfsJUBhuRNkgPquVce",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_doc",
+								"M0EfsJUBhuRNkgPquVce"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

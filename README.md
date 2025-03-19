@@ -41,3 +41,21 @@ Before start make sure you have [Docker Desktop](https://www.docker.com/products
 |**GET**|```/cat/indices?v```|Get list of indexes|
 |**PUT**|```/cat/INDEX_NAME```|Create a index. ex: ```/cat/pages```|
 |**GET**|```/_cat/shards?v```|Get list of sharps|
+|**DELETE**|```/INDEX_NAME```|Delete a index. ex: ```/pages```|
+
+Create a index with a specif settings.
+```json
+PUT /INDEX_NAME
+{
+    "setting": {
+        "number_of_shards": 2,
+        "number_of_replicas": 2
+    }
+}
+```
+
+#### Documents
+|HTTP Verb|URL|Body|Summary|
+|---------|---|----|-------|
+|**POST**|```/INDEX_NAME/_doc```|```{ "name": "Coffee Maker", "price": 64, "in_stock": 10 }```|Create a document. If the ID is not spefied, Elasticsearch will generate|
+|**POST**|```/INDEX_NAME/_doc```|```{ "name": "Toaster", "price": 49, "in_stock": 4 }```|Create a document with ID|
