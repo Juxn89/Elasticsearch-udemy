@@ -310,6 +310,39 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Upsert",
+			"item": [
+				{
+					"name": "Upsert #1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"script\": {\r\n        \"source\": \"ctx._source.in_stock++\"\r\n    },\r\n    \"upsert\": {\r\n        \"name\": \"Blender\",\r\n        \"price\": 399,\r\n        \"in_stock\": 5\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
