@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "docs",
+			"name": "Retrive documents",
 			"item": [
 				{
 					"name": "Get documents",
@@ -58,19 +58,24 @@
 							}
 						},
 						"url": {
-							"raw": "{{ELASTICSEARCH_URL}}/products/_doc/M0EfsJUBhuRNkgPquVce",
+							"raw": "{{ELASTICSEARCH_URL}}/products/_doc/101",
 							"host": [
 								"{{ELASTICSEARCH_URL}}"
 							],
 							"path": [
 								"products",
 								"_doc",
-								"M0EfsJUBhuRNkgPquVce"
+								"101"
 							]
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Create documents",
+			"item": [
 				{
 					"name": "New document",
 					"request": {
@@ -99,6 +104,39 @@
 					"response": []
 				},
 				{
+					"name": "New document with ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Toaster\",\r\n    \"price\": 46,\r\n    \"in_stock\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_doc/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_doc",
+								"101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update documents",
+			"item": [
+				{
 					"name": "Update document",
 					"request": {
 						"method": "PUT",
@@ -121,6 +159,151 @@
 								"products",
 								"_doc",
 								"M0EfsJUBhuRNkgPquVce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a doc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doc\": {\r\n        \"in_stock\": 3\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a doc - add new field",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doc\": {\r\n        \"tags\": [ \"electronics\" ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scripted updates",
+			"item": [
+				{
+					"name": "Update a doc - Scripted update #1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"script\": {\r\n        \"source\": \"ctx._source.in_stock--\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a doc - Scripted update #2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"script\": {\r\n        \"source\": \"ctx._source.in_stock = 10\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a doc - Scripted update #3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"script\": {\r\n        \"source\": \"ctx._source.in_stock -= params.quantity\",\r\n        \"params\": {\r\n            \"quantity\": 4\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ELASTICSEARCH_URL}}/products/_update/101",
+							"host": [
+								"{{ELASTICSEARCH_URL}}"
+							],
+							"path": [
+								"products",
+								"_update",
+								"101"
 							]
 						}
 					},
