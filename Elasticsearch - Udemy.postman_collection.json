@@ -379,6 +379,30 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Delete documents",
+					"item": [
+						{
+							"name": "Delete a document",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ELASTICSEARCH_URL}}/products/_doc/101",
+									"host": [
+										"{{ELASTICSEARCH_URL}}"
+									],
+									"path": [
+										"products",
+										"_doc",
+										"101"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		}
